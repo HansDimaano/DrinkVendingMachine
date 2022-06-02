@@ -44,11 +44,11 @@ int main() {
 
 	intialiseMenu(DrinksMenu);
 
-	cout << "WELCOME TO ENG 209 FINAL EXAMINATION'S VIRTUAL DRINK MACHINE SIMULATOR \n\n\n";
+	cout << "WELCOME TO ENG 209 FINAL EXAMINATION'S VIRTUAL DRINK MACHINE SIMULATOR \n";
 
 	do {
 
-		cout << "The Product's Information is as follows:\n\n";
+		cout << "\n\nThe Product's Information is as follows:\n\n";
 
 		cout << "Brand_Name *********************** Price *************************** Supply\n\n";
 
@@ -110,14 +110,16 @@ int main() {
 		} while (cin.fail() || userPayment < DrinksMenu[userChoice - 1].price);
 
 
-
+		// call computeChange function to get the user change
 		userChange = computeChange(userChoice, userPayment, DrinksMenu);
 
-		cout << "\nYou have purchased " << DrinksMenu[userChoice - 1].name;
 
+		// display drink name and change
+		cout << "\nYou have purchased " << DrinksMenu[userChoice - 1].name;
 		cout << "\n\nYour change is " << userChange << " Pesos";
 
-
+		// decrement drink supply by one
+		DrinksMenu[userChoice - 1].supply--;
 
 		// do while loop for invalid input in continue program
 		do {
